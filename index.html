@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SANORA Furniture</title>
 
 <style>
@@ -19,7 +20,7 @@ body{
     color:white;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -27,17 +28,15 @@ body{
     background:
     linear-gradient(
     135deg,
-    #111111,
-    #1b1b1b,
-    #2c241d
+    #0f0f0f 0%,
+    #1b1b1b 50%,
+    #2b241d 100%
     );
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-
-    color:white;
 
     position:relative;
     overflow:hidden;
@@ -51,15 +50,15 @@ body{
     width:700px;
     height:700px;
 
-    background:
-    radial-gradient(
-    circle,
-    rgba(212,175,55,.15),
-    transparent 70%
-    );
-
     top:-200px;
     right:-150px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.15),
+        transparent 70%
+    );
 
     pointer-events:none;
 }
@@ -74,11 +73,17 @@ body{
 /* LOGO */
 
 .logo{
-    width:220px;
+    width:260px;
+    max-width:90%;
     margin-bottom:30px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    border-radius:15px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.5);
 }
+
+/* TITLE */
 
 .hero h1{
     font-size:72px;
@@ -105,34 +110,37 @@ body{
     background:#d4af37;
     color:#111;
 
-    padding:16px 40px;
-
-    border-radius:40px;
-
     text-decoration:none;
 
+    padding:18px 42px;
+
+    border-radius:50px;
+
     font-weight:bold;
+    font-size:18px;
 
     transition:.3s;
 }
 
 .btn:hover{
     background:#e8c76a;
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
 /* FOOTER */
 
 footer{
-    background:#0d0d0d;
-    padding:30px;
+    background:#0c0c0c;
     text-align:center;
-    color:#aaa;
+    padding:30px 20px;
 }
 
 footer p{
-    margin:8px 0;
+    color:#999;
+    margin:5px 0;
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -145,12 +153,17 @@ footer p{
 }
 
 .logo{
-    width:170px;
+    width:180px;
+}
+
+.btn{
+    width:220px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -159,8 +172,8 @@ footer p{
 
 <div class="hero-content">
 
-<!-- Pastikan file logo ada di folder images -->
-src="https://arilsanjaya93-wq.github.io/sanora-furniture/images/SANORA%20Furniture%20Minimal%20Logo.png"
+<img
+src="images/SANORA Furniture Minimal Logo.png"
 alt="SANORA Furniture"
 class="logo">
 
@@ -176,11 +189,17 @@ Crafting Comfort, Creating Home
 KATALOG
 </a>
 
-<a href="https://wa.me/6282346350129" target="_blank" class="btn">
+<a
+href="https://wa.me/6282346350129"
+target="_blank"
+class="btn">
 WHATSAPP
 </a>
 
-<a href="https://instagram.com/sanorafurniture" target="_blank" class="btn">
+<a
+href="https://arilsanjaya93-wq.github.io/sanora-furniture/#produk"
+target="_blank"
+class="btn">
 INSTAGRAM
 </a>
 
@@ -197,7 +216,7 @@ Bulukumba, Sulawesi Selatan, Indonesia
 </p>
 
 <p>
-WhatsApp: 0823-4635-0129
+WhatsApp : 0823-4635-0129
 </p>
 
 </footer>
