@@ -8,83 +8,140 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-
-background:
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.55)
-),
-url("images/7.png");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-color:white;
+    background:#111;
+    color:white;
 }
 
-.container{
-padding:40px;
+/* HERO SECTION */
+
+.hero{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    135deg,
+    #111111,
+    #1b1b1b,
+    #2c241d
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(212,175,55,.15),
+    transparent 70%
+    );
+
+    top:-200px;
+    right:-150px;
+
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    padding:20px;
 }
 
 .logo{
-max-width:280px;
-margin-bottom:20px;
+    width:220px;
+    border-radius:10px;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
-h1{
-font-size:56px;
-margin-bottom:10px;
+.hero h1{
+    font-size:72px;
+    font-weight:800;
+    margin-bottom:15px;
 }
 
-p{
-font-size:18px;
-margin-bottom:30px;
-line-height:1.8;
+.hero p{
+    font-size:24px;
+    color:#d4af37;
+    margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .btn{
-display:inline-block;
+    background:#d4af37;
+    color:#111;
 
-padding:14px 28px;
-margin:10px;
+    padding:16px 40px;
 
-background:linear-gradient(
-135deg,
-#caa56a,
-#e6c187
-);
+    border-radius:40px;
 
-color:white;
-text-decoration:none;
+    text-decoration:none;
 
-border-radius:40px;
+    font-weight:bold;
 
-font-weight:bold;
-
-transition:.3s;
+    transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-5px);
+    background:#e8c76a;
+    transform:translateY(-3px);
+}
 
-box-shadow:
-0 10px 25px rgba(202,165,106,.4);
+/* FOOTER */
+
+footer{
+    background:#0d0d0d;
+    padding:30px;
+    text-align:center;
+    color:#aaa;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.logo{
+    width:170px;
+}
+
 }
 
 </style>
@@ -92,11 +149,11 @@ box-shadow:
 
 <body>
 
-<div class="container">
+<section class="hero">
 
-<img
-src="images/SANORA Furniture Minimal Logo.png"
-class="logo">
+<div class="hero-content">
+
+<img src="images/logo.png" alt="SANORA Furniture" class="logo">
 
 <h1>SANORA Furniture</h1>
 
@@ -104,25 +161,37 @@ class="logo">
 Crafting Comfort, Creating Home
 </p>
 
+<div class="buttons">
+
 <a href="katalog.html" class="btn">
 KATALOG
 </a>
 
-<a
-href="https://wa.me/6282346350129"
-target="_blank"
-class="btn">
+<a href="https://wa.me/628xxxxxxxxxx" class="btn">
 WHATSAPP
 </a>
 
-<a
-href="https://www.instagram.com/sanora_furniture"
-target="_blank"
-class="btn">
+<a href="https://instagram.com/sanorafurniture" class="btn">
 INSTAGRAM
 </a>
 
 </div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Bulukumba, Sulawesi Selatan, Indonesia
+</p>
+
+<p>
+WhatsApp: +62 xxx xxxx xxxx
+</p>
+
+</footer>
 
 </body>
 </html>
