@@ -1,12 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofa PLUS</title>
 
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{font-family:Arial;margin:20px} #main{width:100%;max-width:700px} .btn{background:#8ca39a;color:white;padding:12px 20px;text-decoration:none;border-radius:8px}</style>
-</head><body>
-<a href="index.html">← Kembali</a>
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+padding:30px;
+}
+
+.main{
+max-width:1000px;
+margin:auto;
+}
+
+#main-image{
+width:100%;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.gallery{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.gallery img{
+width:120px;
+height:120px;
+object-fit:cover;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.price{
+font-size:32px;
+color:#d8b36a;
+margin:20px 0;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+
+padding:14px 28px;
+
+background:#caa56a;
+
+color:white;
+text-decoration:none;
+
+border-radius:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+<a href="katalog.html" style="color:#d8b36a;">
+← Kembali
+</a>
+
 <h1>Sofa PLUS</h1>
-<h2>Rp10.600.000</h2>
-<img id="main" src="images/7.png">
-<div><img src="images/10.png" onclick="document.getElementById('main').src=this.src" style="width:90px;height:90px;object-fit:cover;cursor:pointer;margin:5px"><img src="images/8.png" onclick="document.getElementById('main').src=this.src" style="width:90px;height:90px;object-fit:cover;cursor:pointer;margin:5px"><img src="images/11.png" onclick="document.getElementById('main').src=this.src" style="width:90px;height:90px;object-fit:cover;cursor:pointer;margin:5px"></div>
-<p>Sofa premium SANORA Furniture.</p>
-<a class="btn" href="https://wa.me/6282346350129?text=Halo SANORA Furniture, saya tertarik dengan Sofa PLUS harga Rp10.600.000. Mohon informasi lebih lanjut.">Pesan via WhatsApp</a>
-</body></html>
+
+<img
+id="main-image"
+src="images/7.png">
+
+<div class="gallery">
+
+<img src="images/10.png"
+onclick="changeImage(this.src)">
+
+<img src="images/8.png"
+onclick="changeImage(this.src)">
+
+<img src="images/11.png"
+onclick="changeImage(this.src)">
+
+</div>
+
+<div class="price">
+Rp10.600.000
+</div>
+
+<a
+class="btn"
+href="https://wa.me/6282346350129"
+target="_blank">
+Pesan via WhatsApp
+</a>
+
+</div>
+
+<script>
+
+function changeImage(src){
+document.getElementById(
+'main-image'
+).src=src;
+}
+
+</script>
+
+</body>
+</html>
