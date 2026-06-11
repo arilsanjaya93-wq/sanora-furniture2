@@ -1,127 +1,171 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>71 Three-Person Sofa 2 PD</title>
-
-<style>
-
-body{
-font-family:Arial,sans-serif;
-background:#111;
-color:white;
-padding:30px;
-}
-
-.main{
-max-width:1000px;
-margin:auto;
-}
-
-#main-image{
-width:100%;
-border-radius:20px;
-margin-bottom:20px;
-}
-
-.gallery{
-display:flex;
-gap:10px;
-margin-bottom:20px;
-}
-
-.gallery img{
-width:120px;
-height:120px;
-object-fit:cover;
-
-border-radius:10px;
-
-cursor:pointer;
-
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-.price{
-font-size:32px;
-color:#d8b36a;
-margin:20px 0;
-font-weight:bold;
-}
-
-.btn{
-display:inline-block;
-
-padding:14px 28px;
-
-background:#caa56a;
-
-color:white;
-text-decoration:none;
-
-border-radius:40px;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>71 Three-Person Sofa 2 PD – SANORA Furniture</title>
+  <meta name="description" content="71 Three-Person Sofa 2 PD dari SANORA Furniture. Sofa 3 dudukan elegan, bahan premium, harga Rp 11.500.000." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail-wrap { max-width:1080px; margin:0 auto; padding:8rem 5% 5rem; }
+    .breadcrumb { font-size:.75rem; color:var(--muted); margin-bottom:2rem; }
+    .breadcrumb a { color:var(--wood); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    .gallery { display:flex; flex-direction:column; gap:.75rem; }
+    .gallery-main { border-radius:4px; overflow:hidden; }
+    .gallery-main img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:opacity .3s; }
+    .gallery-thumbs { display:flex; gap:.6rem; }
+    .thumb { width:72px; height:56px; border-radius:2px; overflow:hidden; cursor:pointer; border:2px solid transparent; transition:border-color .2s; flex-shrink:0; }
+    .thumb.active { border-color:var(--gold); }
+    .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .detail-info { position:sticky; top:90px; }
+    .detail-badge { display:inline-block; background:var(--wood); color:var(--white); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.3rem .8rem; border-radius:1px; margin-bottom:1rem; }
+    .detail-name { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3.2vw,2.2rem); font-weight:700; color:var(--wood); margin-bottom:.6rem; line-height:1.2; }
+    .detail-price { font-size:2rem; font-weight:700; color:var(--ink); margin-bottom:.35rem; }
+    .detail-price small { font-size:.8rem; font-weight:400; color:var(--muted); }
+    .detail-note { font-size:.8rem; color:#25D366; font-weight:500; margin-bottom:1.8rem; }
+    .divider { border:none; border-top:1px solid var(--cream-dk); margin:1.5rem 0; }
+    .spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem 1.5rem; margin-bottom:1.8rem; }
+    .spec-item label { font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:.2rem; }
+    .spec-item span { font-size:.9rem; font-weight:500; color:var(--ink); }
+    .desc { font-size:.9rem; color:var(--muted); line-height:1.75; margin-bottom:2rem; }
+    .action-group { display:flex; flex-direction:column; gap:.85rem; }
+    .action-group .btn { justify-content:center; padding:1rem; font-size:.92rem; }
+    .share { margin-top:1.5rem; font-size:.8rem; color:var(--muted); }
+    .share a { color:var(--wood); text-decoration:none; font-weight:600; }
+    .related { background:var(--white); padding:5rem 5%; }
+    .related-inner { max-width:1080px; margin:0 auto; }
+    .related-header { margin-bottom:2.5rem; }
+    .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
+    .card { background:var(--cream); border-radius:3px; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(92,61,46,.12); }
+    .card-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--cream-dk); }
+    .card-body { padding:1.4rem; }
+    .card-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600; color:var(--ink); margin-bottom:.4rem; }
+    .card-price { font-size:1rem; font-weight:700; color:var(--wood); margin-bottom:1rem; }
+    .card .btn { width:100%; justify-content:center; padding:.65rem; }
+    @media(max-width:768px) { .detail-grid{grid-template-columns:1fr;gap:2rem;} .detail-info{position:static;} }
+  </style>
 </head>
-
 <body>
 
-<div class="main">
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img src="images/Logo.png" alt="SANORA" onerror="this.style.display='none'" />
+    <div class="nav-logo-text">
+      <strong>SANORA</strong>
+      <small>Furniture</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="katalog.html" class="active">Katalog</a></li>
+    <li><a href="index.html#keunggulan">Tentang Kami</a></li>
+    <li><a href="https://wa.me/6282346350129?text=Halo%20SANORA,%20saya%20ingin%20memesan%2071%20Three-Person%20Sofa." class="nav-cta" target="_blank" rel="noopener">Pesan Sekarang</a></li>
+  </ul>
+</nav>
 
-<a href="katalog.html" style="color:#d8b36a;">
-← Kembali
-</a>
+<div class="detail-wrap">
+  <div class="breadcrumb"><a href="index.html">Beranda</a> / <a href="katalog.html">Katalog</a> / 71 Three-Person Sofa 2 PD</div>
 
-<h1>71 Three-Person Sofa 2 PD</h1>
+  <div class="detail-grid">
+    <!-- GALLERY -->
+    <div class="gallery reveal">
+      <div class="gallery-main">
+        <img id="main-img" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80" alt="71 Three-Person Sofa" />
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" onclick="changeImg(this,'https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=200&q=70" alt="" />
+        </div>
+        <div class="thumb" onclick="changeImg(this,'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&q=70" alt="" />
+        </div>
+        <div class="thumb" onclick="changeImg(this,'https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=200&q=70" alt="" />
+        </div>
+      </div>
+    </div>
 
-<img
-id="main-image"
-src="images/1.png">
+    <!-- INFO -->
+    <div class="detail-info reveal">
+      <span class="detail-badge">🆕 New Arrival</span>
+      <h1 class="detail-name">71 Three-Person Sofa 2 PD</h1>
+      <div class="detail-price">Rp 11.500.000 <small>/ set</small></div>
+      <p class="detail-note">✅ Stok tersedia · Bisa custom warna & ukuran</p>
 
-<div class="gallery">
+      <hr class="divider" />
 
-<img src="images/4.png"
-onclick="changeImage(this.src)">
+      <div class="spec-grid">
+        <div class="spec-item"><label>Kategori</label><span>Sofa 3 Dudukan</span></div>
+        <div class="spec-item"><label>Material</label><span>Busa High-Density</span></div>
+        <div class="spec-item"><label>Kain</label><span>Fabric Anti-Kusut</span></div>
+        <div class="spec-item"><label>Warna</label><span>Custom (pilih sendiri)</span></div>
+        <div class="spec-item"><label>Sandaran</label><span>Tinggi (High-Back)</span></div>
+        <div class="spec-item"><label>Garansi</label><span>1 Tahun Rangka</span></div>
+      </div>
 
-<img src="images/3.png"
-onclick="changeImage(this.src)">
+      <hr class="divider" />
 
-<img src="images/6.png"
-onclick="changeImage(this.src)">
+      <p class="desc">71 Three-Person Sofa 2 PD adalah pilihan sempurna untuk ruang tamu yang lebih luas dan keluarga yang lebih besar. Sandaran tinggi memberikan dukungan punggung optimal, sementara busa high-density memastikan kenyamanan maksimal untuk penggunaan sehari-hari. Tersedia dalam berbagai pilihan warna untuk menyesuaikan tema ruanganmu.</p>
 
-<img src="images/5.png"
-onclick="changeImage(this.src)">
+      <div class="action-group">
+        <a href="https://wa.me/6282346350129?text=Halo%20SANORA%20Furniture,%20saya%20ingin%20memesan%2071%20Three-Person%20Sofa%202%20PD%20seharga%20Rp%2011.500.000.%20Mohon%20informasinya." class="btn btn-wa" target="_blank" rel="noopener">
+          💬 Pesan via WhatsApp
+        </a>
+        <a href="katalog.html" class="btn btn-outline">← Kembali ke Katalog</a>
+      </div>
 
+      <p class="share">Bagikan: <a href="https://wa.me/?text=Lihat%2071%20Three-Person%20Sofa%20dari%20SANORA%20Furniture!%20https://arilsanjaya93-wq.github.io/sanora-furniture2/sofa71.html" target="_blank">WhatsApp</a></p>
+    </div>
+  </div>
 </div>
 
-<div class="price">
-Rp11.500.000
-</div>
+<!-- PRODUK LAINNYA -->
+<section class="related">
+  <div class="related-inner">
+    <div class="related-header">
+      <p class="section-eyebrow">Produk Lainnya</p>
+      <h2 class="section-title">Mungkin Kamu Suka</h2>
+    </div>
+    <div class="related-grid">
+      <div class="card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofa PLUS" />
+        <div class="card-body">
+          <h3 class="card-name">Sofa PLUS</h3>
+          <p class="card-price">Rp 10.600.000</p>
+          <a href="sofa-plus.html" class="btn btn-primary">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a
-class="btn"
-href="https://wa.me/6282346350129"
-target="_blank">
-Pesan via WhatsApp
-</a>
-
-</div>
+<footer>
+  <span>© 2025 <strong>SANORA Furniture</strong>. Bulukumba, Sulawesi Selatan.</span>
+  <div class="footer-links">
+    <a href="index.html">Beranda</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="https://wa.me/6282346350129" target="_blank">WhatsApp</a>
+  </div>
+</footer>
 
 <script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-function changeImage(src){
-document.getElementById(
-'main-image'
-).src=src;
-}
-
+  function changeImg(thumb, src) {
+    document.getElementById('main-img').src = src;
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  }
 </script>
-
 </body>
 </html>
