@@ -1,146 +1,205 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Katalog SANORA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog – SANORA Furniture</title>
+  <meta name="description" content="Katalog lengkap SANORA Furniture. Sofa premium berkualitas tinggi dari Bulukumba, Sulawesi Selatan." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 9rem 5% 4.5rem;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dk) 100%);
+      border-bottom: 1px solid rgba(92,61,46,.1);
+    }
+    .page-hero-inner { max-width: 1080px; margin: 0 auto; }
+    .breadcrumb { font-size:.75rem; color:var(--muted); margin-bottom:1.2rem; }
+    .breadcrumb a { color:var(--wood); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:var(--wood); margin-bottom:.6rem; }
+    .page-hero p { color:var(--muted); font-size:.97rem; line-height:1.7; max-width:480px; }
 
-<style>
+    /* FILTER BAR */
+    .filter-bar {
+      background:var(--white); border-bottom:1px solid var(--cream-dk);
+      padding:1.1rem 5%; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+      position:sticky; top:66px; z-index:50;
+    }
+    .filter-label { font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    .filter-btn {
+      padding:.4rem 1.1rem; border-radius:20px; border:1.5px solid var(--cream-dk);
+      font-size:.8rem; font-weight:500; color:var(--muted); cursor:pointer;
+      background:transparent; font-family:'Inter',sans-serif; transition:all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active { border-color:var(--wood); color:var(--wood); background:rgba(92,61,46,.06); }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    /* GRID */
+    .katalog-section { background:var(--cream); padding:4rem 5%; }
+    .katalog-section-inner { max-width:1100px; margin:0 auto; }
+    .katalog-count { font-size:.82rem; color:var(--muted); margin-bottom:2rem; }
+    .katalog-count strong { color:var(--ink); }
 
-body{
-background:#f5f5f5;
-}
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap:1.75rem;
+    }
 
-header{
-padding:30px;
-text-align:center;
-background:#111;
-color:white;
-}
+    .card { background:var(--white); border-radius:3px; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+    .card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(92,61,46,.13); }
+    .card-img-wrap { position:relative; overflow:hidden; }
+    .card-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--cream-dk); transition:transform .4s; }
+    .card:hover .card-img { transform:scale(1.04); }
+    .card-badge {
+      position:absolute; top:.85rem; left:.85rem;
+      font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:.3rem .7rem; border-radius:1px;
+    }
+    .badge-best { background:var(--gold); color:var(--white); }
+    .badge-new  { background:var(--wood); color:var(--white); }
 
-header h1{
-color:#d8b36a;
-}
+    .card-body { padding:1.5rem; }
+    .card-cat { font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
+    .card-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:600; color:var(--ink); margin-bottom:.4rem; }
+    .card-desc { font-size:.82rem; color:var(--muted); line-height:1.6; margin-bottom:.9rem; }
+    .card-footer { display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
+    .card-price { font-size:1.08rem; font-weight:700; color:var(--wood); }
+    .card-price small { font-size:.72rem; font-weight:400; color:var(--muted); display:block; }
+    .btn-sm { padding:.6rem 1.2rem; font-size:.78rem; }
 
-.products{
-padding:50px;
+    /* EMPTY */
+    .empty { text-align:center; padding:4rem 1rem; color:var(--muted); }
+    .empty h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--wood); margin-bottom:.5rem; }
 
-display:grid;
+    /* CTA BANNER */
+    .kat-cta {
+      background:var(--wood); border-radius:3px;
+      padding:2.5rem 2rem; text-align:center; margin-top:3rem;
+    }
+    .kat-cta p { color:rgba(255,255,255,.7); font-size:.9rem; margin-bottom:1.4rem; }
+    .kat-cta h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--white); margin-bottom:.5rem; }
 
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:30px;
-}
-
-.card{
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-text-decoration:none;
-color:black;
-
-box-shadow:
-0 10px 25px rgba(0,0,0,.1);
-
-transition:.3s;
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-0 20px 40px rgba(0,0,0,.2);
-}
-
-.card img{
-width:100%;
-height:280px;
-object-fit:cover;
-
-transition:.5s;
-}
-
-.card:hover img{
-transform:scale(1.05);
-}
-
-.card-content{
-padding:20px;
-}
-
-.card h2{
-margin-bottom:10px;
-}
-
-.price{
-color:#caa56a;
-font-size:24px;
-font-weight:bold;
-}
-
-</style>
+    @media(max-width:600px) { .grid { grid-template-columns:1fr; } }
+  </style>
 </head>
-
 <body>
 
-<header>
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img src="images/Logo.png" alt="SANORA" onerror="this.style.display='none'" />
+    <div class="nav-logo-text">
+      <strong>SANORA</strong>
+      <small>Furniture</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="katalog.html" class="active">Katalog</a></li>
+    <li><a href="index.html#keunggulan">Tentang Kami</a></li>
+    <li><a href="https://wa.me/6282346350129?text=Halo%20SANORA,%20saya%20ingin%20memesan." class="nav-cta" target="_blank" rel="noopener">Pesan Sekarang</a></li>
+  </ul>
+</nav>
 
-<h1>KATALOG SANORA</h1>
-
-<p>
-Premium Sofa Collection
-</p>
-
-</header>
-
-<section class="products">
-
-<a class="card" href="sofa-plus.html">
-
-<img src="images/7.png">
-
-<div class="card-content">
-
-<h2>Sofa PLUS</h2>
-
-<div class="price">
-Rp10.600.000
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Katalog</div>
+    <p class="section-eyebrow">Premium Collection</p>
+    <h1>Katalog SANORA</h1>
+    <p>Temukan furnitur impianmu dari koleksi premium kami. Semua produk dapat dikustomisasi sesuai ukuran dan warna pilihanmu.</p>
+  </div>
 </div>
 
+<!-- FILTER -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" onclick="filterKatalog('semua', this)">Semua</button>
+  <button class="filter-btn" onclick="filterKatalog('sofa', this)">Sofa</button>
+  <button class="filter-btn" onclick="filterKatalog('bestseller', this)">Best Seller</button>
+  <button class="filter-btn" onclick="filterKatalog('new', this)">New Arrival</button>
 </div>
 
-</a>
+<!-- GRID -->
+<section class="katalog-section">
+  <div class="katalog-section-inner">
+    <p class="katalog-count" id="count">Menampilkan <strong>2</strong> produk</p>
+    <div class="grid" id="katalog-grid">
 
-<a class="card" href="sofa71.html">
+      <div class="card reveal" data-cat="sofa bestseller">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofa PLUS" />
+          <span class="card-badge badge-best">Best Seller</span>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Sofa Set</p>
+          <h3 class="card-name">Sofa PLUS</h3>
+          <p class="card-desc">Desain modern minimalis dengan bantalan tebal berteknologi busa high-density. Cocok untuk ruang tamu keluarga.</p>
+          <div class="card-footer">
+            <div class="card-price">Rp 10.600.000 <small>per set</small></div>
+            <a href="sofa-plus.html" class="btn btn-primary btn-sm">Detail</a>
+          </div>
+        </div>
+      </div>
 
-<img src="images/1.png">
+      <div class="card reveal" data-cat="sofa new">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80" alt="71 Three-Person Sofa" />
+          <span class="card-badge badge-new">New Arrival</span>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Sofa Set</p>
+          <h3 class="card-name">71 Three-Person Sofa 2 PD</h3>
+          <p class="card-desc">Sofa 3 dudukan elegan dengan sandaran tinggi dan kain premium anti-kusut. Hadir dalam berbagai pilihan warna.</p>
+          <div class="card-footer">
+            <div class="card-price">Rp 11.500.000 <small>per set</small></div>
+            <a href="sofa71.html" class="btn btn-primary btn-sm">Detail</a>
+          </div>
+        </div>
+      </div>
 
-<div class="card-content">
+    </div>
 
-<h2>71 Three-Person Sofa 2 PD</h2>
-
-<div class="price">
-Rp11.500.000
-</div>
-
-</div>
-
-</a>
-
+    <!-- CTA BANNER -->
+    <div class="kat-cta reveal">
+      <h3>Tidak menemukan yang kamu cari?</h3>
+      <p>Kami melayani pemesanan custom sesuai ukuran, warna, dan model yang kamu inginkan.</p>
+      <a href="https://wa.me/6282346350129?text=Halo%20SANORA,%20saya%20ingin%20memesan%20furnitur%20custom." class="btn btn-wa" target="_blank" rel="noopener">💬 Tanya via WhatsApp</a>
+    </div>
+  </div>
 </section>
 
+<footer>
+  <span>© 2025 <strong>SANORA Furniture</strong>. Bulukumba, Sulawesi Selatan.</span>
+  <div class="footer-links">
+    <a href="index.html">Beranda</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="https://wa.me/6282346350129" target="_blank">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function filterKatalog(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('#katalog-grid .card');
+    let visible = 0;
+    cards.forEach(card => {
+      const cats = card.dataset.cat || '';
+      const show = cat === 'semua' || cats.includes(cat);
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    document.getElementById('count').innerHTML = `Menampilkan <strong>${visible}</strong> produk`;
+  }
+</script>
 </body>
 </html>
