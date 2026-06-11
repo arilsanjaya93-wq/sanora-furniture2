@@ -1,225 +1,309 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANORA Furniture – Crafting Comfort, Creating Home</title>
+  <meta name="description" content="SANORA Furniture – Produsen sofa dan furnitur premium berkualitas tinggi dari Bulukumba, Sulawesi Selatan." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 5% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url("https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80") center/cover no-repeat;
+      filter: brightness(.88) saturate(.8);
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(249,245,240,.93) 42%, rgba(249,245,240,.15) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 560px;
+      animation: fadeUp .9s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before { content:''; display:block; width:26px; height:2px; background:var(--gold); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      font-weight: 700; line-height: 1.13; color: var(--wood); margin-bottom: 1.25rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p {
+      font-size: 1.02rem; line-height: 1.78;
+      color: var(--muted); max-width: 440px; margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-<title>SANORA Furniture</title>
+    /* ── STATS ── */
+    .stats {
+      background: var(--wood); padding: 2.5rem 5%;
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; color: var(--white); }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; font-weight: 700; color: var(--gold-lt); line-height: 1;
+    }
+    .stat-label { font-size: .73rem; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin-top: .3rem; }
 
-<style>
+    /* ── PRODUK UNGGULAN ── */
+    .produk { background: var(--white); }
+    .produk-header { text-align: center; margin-bottom: 3.5rem; }
+    .produk-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 2rem; max-width: 900px; margin: 0 auto 3rem;
+    }
+    .card {
+      background: var(--cream); border-radius: 3px; overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(92,61,46,.13); }
+    .card-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--cream-dk); }
+    .card-body { padding: 1.6rem; }
+    .card-tag { font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+    .card-name { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:600; color:var(--ink); margin-bottom:.45rem; }
+    .card-price { font-size:1.1rem; font-weight:700; color:var(--wood); margin-bottom:1.2rem; }
+    .card-price span { font-size:.72rem; font-weight:400; color:var(--muted); }
+    .card .btn { width:100%; justify-content:center; padding:.72rem; }
+    .produk-cta { text-align:center; }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+    /* ── KEUNGGULAN ── */
+    .keunggulan { background: var(--cream); }
+    .keunggulan-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4.5rem; align-items: center; max-width: 1080px; margin: 0 auto;
+    }
+    .keunggulan-img { position:relative; border-radius:3px; overflow:hidden; }
+    .keunggulan-img img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; }
+    .k-badge {
+      position:absolute; bottom:1.5rem; left:1.5rem;
+      background:var(--wood); color:var(--white); padding:.85rem 1.2rem; border-radius:2px;
+    }
+    .k-badge strong { font-family:'Playfair Display',serif; font-size:1.4rem; display:block; line-height:1; }
+    .k-badge small { font-size:.7rem; opacity:.75; letter-spacing:.08em; text-transform:uppercase; }
+    .features { display:flex; flex-direction:column; gap:1.4rem; margin-top:2.2rem; }
+    .feature { display:flex; gap:1rem; align-items:flex-start; }
+    .feature-icon {
+      width:42px; height:42px; flex-shrink:0;
+      background:var(--cream-dk); border-radius:2px;
+      display:flex; align-items:center; justify-content:center; font-size:1.15rem;
+    }
+    .feature-text h4 { font-size:.92rem; font-weight:600; color:var(--ink); margin-bottom:.22rem; }
+    .feature-text p { font-size:.84rem; color:var(--muted); line-height:1.6; }
 
-body{
-    background:#111;
-    color:white;
-}
+    /* ── TESTIMONI ── */
+    .testimoni { background: var(--white); }
+    .testimoni-header { text-align:center; margin-bottom:3rem; }
+    .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.75rem; max-width:960px; margin:0 auto; }
+    .testi-card { background:var(--cream); padding:2rem; border-radius:3px; border-left:3px solid var(--gold); }
+    .testi-stars { color:var(--gold); font-size:1rem; margin-bottom:.75rem; letter-spacing:.1em; }
+    .testi-text { font-size:.9rem; color:var(--muted); line-height:1.7; margin-bottom:1.1rem; font-style:italic; }
+    .testi-author { font-size:.82rem; font-weight:600; color:var(--ink); }
+    .testi-location { font-size:.75rem; color:var(--muted); }
 
-/* HERO */
+    /* ── CTA SECTION ── */
+    .cta-section { background:var(--wood); text-align:center; }
+    .cta-section .section-eyebrow { justify-content:center; color:var(--gold-lt); }
+    .cta-section .section-eyebrow::before { background:var(--gold-lt); display:none; }
+    .cta-section .section-title { color:var(--white); }
+    .cta-section .section-sub { color:rgba(255,255,255,.65); margin:0 auto 2.5rem; }
+    .cta-actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .cta-info { margin-top:2rem; font-size:.82rem; color:rgba(255,255,255,.45); display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; }
+    .cta-info span { display:flex; align-items:center; gap:.4rem; }
 
-.hero{
-    min-height:100vh;
-
-    background:
-    linear-gradient(
-    135deg,
-    #0f0f0f 0%,
-    #1b1b1b 50%,
-    #2b241d 100%
-    );
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:700px;
-    height:700px;
-
-    top:-200px;
-    right:-150px;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(212,175,55,.15),
-        transparent 70%
-    );
-
-    pointer-events:none;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:900px;
-    padding:20px;
-}
-
-/* LOGO */
-
-.logo{
-    width:260px;
-    max-width:90%;
-    margin-bottom:30px;
-
-    border-radius:15px;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.5);
-}
-
-/* TITLE */
-
-.hero h1{
-    font-size:72px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:24px;
-    color:#d4af37;
-    margin-bottom:40px;
-}
-
-/* BUTTONS */
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    background:#d4af37;
-    color:#111;
-
-    text-decoration:none;
-
-    padding:18px 42px;
-
-    border-radius:50px;
-
-    font-weight:bold;
-    font-size:18px;
-
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#e8c76a;
-    transform:translateY(-4px);
-}
-
-/* FOOTER */
-
-footer{
-    background:#0c0c0c;
-    text-align:center;
-    padding:30px 20px;
-}
-
-footer p{
-    color:#999;
-    margin:5px 0;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:48px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-.logo{
-    width:180px;
-}
-
-.btn{
-    width:220px;
-}
-
-}
-
-</style>
-
+    @media(max-width:768px) {
+      .keunggulan-inner { grid-template-columns:1fr; }
+      .keunggulan-img { display:none; }
+      .stats { gap:2rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img src="images/Logo.png" alt="SANORA" onerror="this.style.display='none'" />
+    <div class="nav-logo-text">
+      <strong>SANORA</strong>
+      <small>Furniture</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Beranda</a></li>
+    <li><a href="katalog.html">Katalog</a></li>
+    <li><a href="#keunggulan">Tentang Kami</a></li>
+    <li><a href="#kontak" class="nav-cta">Pesan Sekarang</a></li>
+  </ul>
+</nav>
 
-<div class="hero-content">
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Furniture Premium · Bulukumba, Sul-Sel</p>
+    <h1>Crafting <em>Comfort</em>,<br>Creating Home.</h1>
+    <p>Setiap sudut rumah layak mendapatkan yang terbaik. SANORA menghadirkan furnitur berkualitas tinggi yang dibuat dengan penuh ketelitian — untuk keluarga yang kamu cintai.</p>
+    <div class="hero-actions">
+      <a href="katalog.html" class="btn btn-primary">🛋️ Lihat Katalog</a>
+      <a href="https://wa.me/6282346350129?text=Halo%20SANORA%20Furniture,%20saya%20ingin%20konsultasi%20produk." class="btn btn-wa" target="_blank" rel="noopener">💬 WhatsApp Kami</a>
+    </div>
+  </div>
+</header>
 
-<img
-src="images/Logo.png"
-alt="SANORA Furniture"
-class="logo">
-
-<h1>SANORA Furniture</h1>
-
-<p>
-Crafting Comfort, Creating Home
-</p>
-
-<div class="buttons">
-
-<a href="katalog.html" class="btn">
-KATALOG
-</a>
-
-<a
-href="https://wa.me/6282346350129?text=Halo%20SANORA%20Furniture,%20saya%20tertarik%20dengan%20produk%20yang%20ada%20di%20katalog.%20Mohon%20informasinya."
-target="_blank"
-class="btn">
-WHATSAPP
-</a>
-
-<a
-href="https://www.instagram.com/sanora_furniture?igsh=MWFxajNqbDRkOHA3dw=="
-target="_blank"
-class="btn">
-INSTAGRAM
-</a>
-
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-number">100+</div><div class="stat-label">Pelanggan Puas</div></div>
+  <div class="stat reveal"><div class="stat-number">5 ★</div><div class="stat-label">Rating Kepuasan</div></div>
+  <div class="stat reveal"><div class="stat-number">2+</div><div class="stat-label">Tahun Pengalaman</div></div>
+  <div class="stat reveal"><div class="stat-number">Custom</div><div class="stat-label">Ukuran & Warna</div></div>
 </div>
 
-</div>
+<!-- PRODUK UNGGULAN -->
+<section class="produk">
+  <div class="produk-header reveal">
+    <p class="section-eyebrow eyebrow-center">Koleksi Pilihan</p>
+    <h2 class="section-title">Produk Unggulan Kami</h2>
+    <p class="section-sub" style="margin:0 auto">Sofa premium pilihan yang paling banyak diminati pelanggan SANORA.</p>
+  </div>
+  <div class="produk-grid">
+    <div class="card reveal">
+      <img class="card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofa PLUS" />
+      <div class="card-body">
+        <p class="card-tag">⭐ Best Seller</p>
+        <h3 class="card-name">Sofa PLUS</h3>
+        <p class="card-price">Rp 10.600.000 <span>/ set</span></p>
+        <a href="sofa-plus.html" class="btn btn-primary">Lihat Detail</a>
+      </div>
+    </div>
+    <div class="card reveal">
+      <img class="card-img" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80" alt="71 Three-Person Sofa" />
+      <div class="card-body">
+        <p class="card-tag">🆕 New Arrival</p>
+        <h3 class="card-name">71 Three-Person Sofa 2 PD</h3>
+        <p class="card-price">Rp 11.500.000 <span>/ set</span></p>
+        <a href="sofa71.html" class="btn btn-primary">Lihat Detail</a>
+      </div>
+    </div>
+  </div>
+  <div class="produk-cta reveal">
+    <a href="katalog.html" class="btn btn-outline">Lihat Semua Produk →</a>
+  </div>
+</section>
 
+<!-- KEUNGGULAN -->
+<section class="keunggulan" id="keunggulan">
+  <div class="keunggulan-inner">
+    <div class="keunggulan-img reveal">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80" alt="Workshop SANORA" />
+      <div class="k-badge">
+        <strong>SANORA</strong>
+        <small>Est. Bulukumba</small>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-eyebrow">Mengapa SANORA?</p>
+      <h2 class="section-title">Kualitas yang<br>Bicara Sendiri</h2>
+      <p class="section-sub">Kami percaya furnitur yang baik adalah investasi jangka panjang. Setiap produk SANORA melewati proses seleksi ketat agar tahan lama dan tetap elegan.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🪵</div>
+          <div class="feature-text"><h4>Bahan Berkualitas Tinggi</h4><p>Material pilihan yang kuat, tahan lama, dan aman untuk seluruh keluarga.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <div class="feature-text"><h4>Dapat Dikustomisasi</h4><p>Pilih ukuran, warna, dan model sesuai kebutuhan dan estetika ruanganmu.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <div class="feature-text"><h4>Pengiriman ke Seluruh Indonesia</h4><p>Layanan pengiriman yang aman dan terpercaya ke seluruh penjuru nusantara.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <div class="feature-text"><h4>Konsultasi Gratis via WhatsApp</h4><p>Tim kami siap membantumu memilih furnitur terbaik kapan saja.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="testimoni">
+  <div class="testimoni-header reveal">
+    <p class="section-eyebrow eyebrow-center">Kata Mereka</p>
+    <h2 class="section-title">Pelanggan yang Bahagia</h2>
+    <p class="section-sub" style="margin:0 auto">Kepuasan pelanggan adalah prioritas utama SANORA.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Sofanya sangat nyaman dan materialnya terasa premium. Pesan hingga pengiriman juga cepat dan aman. Sangat puas!"</p>
+      <div class="testi-author">Rahma A.</div>
+      <div class="testi-location">Makassar, Sul-Sel</div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Sofa PLUS pilihan terbaik buat ruang tamu kami. Warnanya cantik, jahitannya rapi. Harga sangat sebanding dengan kualitasnya."</p>
+      <div class="testi-author">Bapak Hendra S.</div>
+      <div class="testi-location">Bulukumba, Sul-Sel</div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Bisa request warna custom dan jadinya persis seperti yang saya bayangkan. Pelayanan ramah dan responsif di WhatsApp!"</p>
+      <div class="testi-author">Andi Nurul F.</div>
+      <div class="testi-location">Bone, Sul-Sel</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontak">
+  <p class="section-eyebrow">Hubungi Kami</p>
+  <h2 class="section-title">Siap Wujudkan<br>Rumah Impianmu?</h2>
+  <p class="section-sub">Konsultasikan kebutuhanmu sekarang. Tim SANORA siap memilihkan furnitur terbaik untuk rumahmu.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/6282346350129?text=Halo%20SANORA%20Furniture,%20saya%20ingin%20konsultasi%20pemilihan%20furnitur." class="btn btn-wa" target="_blank" rel="noopener" style="padding:.95rem 2.4rem;font-size:.95rem;">💬 Chat di WhatsApp</a>
+    <a href="https://www.instagram.com/sanora_furniture" class="btn btn-ghost" target="_blank" rel="noopener" style="padding:.95rem 2.4rem;font-size:.95rem;">📸 Instagram</a>
+  </div>
+  <div class="cta-info">
+    <span>📍 Bulukumba, Sulawesi Selatan</span>
+    <span>📞 0823-4635-0129</span>
+    <span>🕐 Senin–Sabtu, 08.00–17.00 WITA</span>
+  </div>
 </section>
 
 <footer>
-
-<p>
-Bulukumba, Sulawesi Selatan, Indonesia
-</p>
-
-<p>
-WhatsApp : 0823-4635-0129
-</p>
-
+  <span>© 2025 <strong>SANORA Furniture</strong>. Bulukumba, Sulawesi Selatan.</span>
+  <div class="footer-links">
+    <a href="index.html">Beranda</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="https://wa.me/6282346350129" target="_blank">WhatsApp</a>
+  </div>
 </footer>
 
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
